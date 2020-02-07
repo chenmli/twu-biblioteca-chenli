@@ -48,6 +48,7 @@ public class BibliotecaApp {
         userChoice = userInputScanner.nextLine().trim();
         return userChoice;
     }
+    
     //Displays Menu
     public void displayMenu(List<String> menuList)
     {
