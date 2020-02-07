@@ -40,15 +40,31 @@ public class BibliotecaApp {
         }
     }
     // Run Menu
-    public String menuControls(List<String> menuList)
+    public Integer menuControls(List<String> menuList)
     {
         Scanner userInputScanner = new Scanner(System.in);
-        String userChoice = "";
+        String userRawInput = "";
+        Integer userInputInt= Integer.MAX_VALUE;
         displayMenu(menuList);
-        userChoice = userInputScanner.nextLine().trim();
-        return userChoice;
+        userRawInput = userInputScanner.nextLine().trim();
+        //validations
+        try
+        {
+            userInputInt = Integer.parseInt(userRawInput);
+            if(userInputInt<0 || userInputInt > menuList.size())
+            {
+                System.out.println("Please select a valid option");
+                menuControls(menuList);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println("Please select a valid option");
+            menuControls(menuList);
+        }
+        return userInputInt;
     }
-    
+
     //Displays Menu
     public void displayMenu(List<String> menuList)
     {
