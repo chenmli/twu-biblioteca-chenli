@@ -10,9 +10,9 @@ public class BibliotecaApp {
     public BibliotecaApp(List<Book> bookList)
     {
         this.bookList = bookList;
-        this.bookList.add(new Book("Childhood of Logan"));
-        this.bookList.add(new Book("Adulthood of Aaron"));
-        this.bookList.add(new Book("Neighborhood of Paris"));
+        this.bookList.add(new Book("Childhood of TWER","TWER","2000"));
+        this.bookList.add(new Book("Adulthood of TWER","TWER","2000"));
+        this.bookList.add(new Book("Neighborhood of TWER","TWER","2000"));
 
     }
 
@@ -33,9 +33,8 @@ public class BibliotecaApp {
     // Displays Booklist
     public void displayBookList()
     {
-
         for (Book book:bookList) {
-            System.out.println(book.getBookName());
+            System.out.println(book.getBookName()+"\t"+book.getBookAuthor()+"\t"+book.getBookPublishedYear());
         }
     }
     public static void main(String[] args) {
