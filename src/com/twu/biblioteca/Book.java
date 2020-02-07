@@ -40,4 +40,9 @@ public class Book {
     public void setBookPublishedYear(String bookPublishedYear) {
         this.bookPublishedYear = bookPublishedYear;
     }
+
+    @Override
+    public String toString() {
+        return this.getBookName()+"\t"+this.getBookAuthor()+"\t"+this.getBookPublishedYear();
+    }
 }

@@ -1,9 +1,6 @@
 package com.twu.biblioteca;
 
-import javax.management.remote.rmi._RMIConnection_Stub;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BibliotecaApp {
 
@@ -32,15 +29,8 @@ public class BibliotecaApp {
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
     }
 
-    // Displays Booklist
-    public void displayBookList()
-    {
-        for (Book book:bookList) {
-            System.out.println(book.getBookName()+"\t"+book.getBookAuthor()+"\t"+book.getBookPublishedYear());
-        }
-    }
     // Run Menu
-    public Integer menuControls(List<String> menuList)
+    public int menuControls(List<String> menuList)
     {
         Scanner userInputScanner = new Scanner(System.in);
         String userRawInput = "";
@@ -69,17 +59,43 @@ public class BibliotecaApp {
     public void displayMenu(List<String> menuList)
     {
         System.out.println("Main Menu:");
-        for(int i = 0; i < menuList.size();i++)
+        for(int i=0; i < menuList.size();i++)
         {
             System.out.println((i+1)+". "+menuList.get(i));
         }
         System.out.print("Please make a choice: ");
     }
+    // Menu Options Method: Book List
+    public void displayBookList()
+    {
+        for(int i = 0;i<bookList.size();i++)
+        {
+            System.out.println((i+1)+". "+bookList.get(i).toString());
+        }
+    }
     public static void main(String[] args) {
-        List<String> menuList = new ArrayList<String>();
-        menuList.add("List of Books");
+        boolean flag = true;
+        List<String> mainMenuList = new ArrayList<String>();
+        mainMenuList.add("List of Books");
+        mainMenuList.add("Exit");
+
         BibliotecaApp bibliotecaApp = new BibliotecaApp(new ArrayList<Book>());
-        bibliotecaApp.menuControls(menuList);
+        while(flag)
+        {
+            int input = bibliotecaApp.menuControls(mainMenuList);
+            switch(input)
+            {
+                case 1 : bibliotecaApp.displayBookList();
+                         break;
+                case 2 : flag = false;
+
+                        break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + input);
+            }
+        }
+
+
 
     }
 
