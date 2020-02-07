@@ -46,5 +46,12 @@ public class BibliotecaTest {
         }
 
     }
+    @Test
+    public void shouldTheUserInputIsCorrect()
+    {
+
+    }
+   // @Test
+    //public void shouldThe
 
 }

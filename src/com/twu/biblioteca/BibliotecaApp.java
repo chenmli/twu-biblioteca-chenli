@@ -1,7 +1,9 @@
 package com.twu.biblioteca;
 
+import javax.management.remote.rmi._RMIConnection_Stub;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BibliotecaApp {
 
@@ -37,11 +39,30 @@ public class BibliotecaApp {
             System.out.println(book.getBookName()+"\t"+book.getBookAuthor()+"\t"+book.getBookPublishedYear());
         }
     }
+    // Run Menu
+    public String menuControls(List<String> menuList)
+    {
+        Scanner userInputScanner = new Scanner(System.in);
+        String userChoice = "";
+        displayMenu(menuList);
+        userChoice = userInputScanner.nextLine().trim();
+        return userChoice;
+    }
+    //Displays Menu
+    public void displayMenu(List<String> menuList)
+    {
+        System.out.println("Main Menu:");
+        for(int i = 0; i < menuList.size();i++)
+        {
+            System.out.println((i+1)+". "+menuList.get(i));
+        }
+        System.out.print("Please make a choice: ");
+    }
     public static void main(String[] args) {
-
+        List<String> menuList = new ArrayList<String>();
+        menuList.add("List of Books");
         BibliotecaApp bibliotecaApp = new BibliotecaApp(new ArrayList<Book>());
-        bibliotecaApp.displayWelcomeMessage();
-        bibliotecaApp.displayBookList();
+        bibliotecaApp.menuControls(menuList);
 
     }
 
