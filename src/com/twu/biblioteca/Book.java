@@ -1,20 +1,25 @@
 package com.twu.biblioteca;
 
 // This is the book class that contains the information of book name, author name , and year of publish
-public class Book {
+public class Book extends LibraryItem{
     private String bookName;
     private String bookAuthor;
     private String bookPublishedYear;
 
     public Book(String bookName)
     {
+        super();
         this.bookName = bookName;
+        this.bookAuthor = "Placeholder";
+        this.bookPublishedYear = "Placeholder";
     }
 
     public Book(String bookName, String bookAuthor, String bookPublishedYear) {
+        super();
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.bookPublishedYear = bookPublishedYear;
+
     }
 
     public String getBookName() {
@@ -43,6 +48,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return this.getBookName()+"\t"+this.getBookAuthor()+"\t"+this.getBookPublishedYear();
+        return this.getBookName()+"\t"+this.getBookAuthor()+"\t"+this.getBookPublishedYear()+"\t"+this.getId();
     }
 }
