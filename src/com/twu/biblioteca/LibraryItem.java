@@ -31,4 +31,8 @@ public class LibraryItem {
     {
         this.isCheckedOut = true;
     }
+    public void returnItem()
+    {
+        this.isCheckedOut = false;
+    }
 }
